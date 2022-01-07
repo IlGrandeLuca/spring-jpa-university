@@ -44,6 +44,7 @@ public class Department {
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "department_id")
+	@OrderBy("name")
 	private List<Degree> degrees;
 
 	/**

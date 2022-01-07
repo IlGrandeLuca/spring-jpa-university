@@ -7,8 +7,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<h1 th:text="${department.name}"></h1>
+	<div class="container text-center">
+		<h1 class="my-3 py-3" th:text="${department.name}"></h1>
 		<hr>
 
 		<table class="table align-middle">
@@ -27,14 +27,14 @@
 					<td th:text="${degree.id}" class="table-primary"></td>
 					<td th:text="${degree.name}" class="table-primary"></td>
 					<td th:text="${degree.level}" class="table-info"></td>
-					<td th:text="${degree.address}" class="table-light"></td>
+					<td th:text="${degree.address}" class="table-info"></td>
 					<td th:text="${degree.email}" class="table-secondary"></td>
-					<td th:text="${degree.website}" class="table-secondary"></td>
+					<td th:text="${degree.website}" class="table-success"></td>
 				</tr>
 			</tbody>
 		</table>
-		<div>
-			<a class="btn btn-primary" th:href="@{/}">Back</a>
+		<div class="text-center">
+			<a class="btn btn-secondary" th:href="@{/}">Back</a>
 		</div>
 	</div>
 	<div th:replace="resources :: scripts"></div>
