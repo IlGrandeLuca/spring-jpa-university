@@ -4,17 +4,12 @@
 package org.generation.italy.model;
 
 import java.math.BigInteger;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 /**
@@ -23,28 +18,21 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "departments")
-public class Department {
+@Table(name = "degrees")
+public class Degree {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private BigInteger id;
 
+	@Column(name = "department_id")
+	private BigInteger departmentId;
+
 	private String name;
+	private String level;
 	private String address;
-	private String phone;
-
-	@Column(unique = true)
 	private String email;
-
 	private String website;
-
-	@Column(name = "head_of_department")
-	private String headOfDepartment;
-
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "department_id")
-	private List<Degree> degrees;
 
 	/**
 	 * @return the id
@@ -58,6 +46,20 @@ public class Department {
 	 */
 	public void setId(BigInteger id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the departmentId
+	 */
+	public BigInteger getDepartmentId() {
+		return departmentId;
+	}
+
+	/**
+	 * @param departmentId the departmentId to set
+	 */
+	public void setDepartmentId(BigInteger departmentId) {
+		this.departmentId = departmentId;
 	}
 
 	/**
@@ -75,6 +77,20 @@ public class Department {
 	}
 
 	/**
+	 * @return the level
+	 */
+	public String getLevel() {
+		return level;
+	}
+
+	/**
+	 * @param level the level to set
+	 */
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	/**
 	 * @return the address
 	 */
 	public String getAddress() {
@@ -86,20 +102,6 @@ public class Department {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return phone;
-	}
-
-	/**
-	 * @param phone the phone to set
-	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
 	}
 
 	/**
@@ -128,34 +130,6 @@ public class Department {
 	 */
 	public void setWebsite(String website) {
 		this.website = website;
-	}
-
-	/**
-	 * @return the headOfDepartment
-	 */
-	public String getHeadOfDepartment() {
-		return headOfDepartment;
-	}
-
-	/**
-	 * @param headOfDepartment the headOfDepartment to set
-	 */
-	public void setHeadOfDepartment(String headOfDepartment) {
-		this.headOfDepartment = headOfDepartment;
-	}
-
-	/**
-	 * @return the degrees
-	 */
-	public List<Degree> getDegrees() {
-		return degrees;
-	}
-
-	/**
-	 * @param degrees the degrees to set
-	 */
-	public void setDegrees(List<Degree> degrees) {
-		this.degrees = degrees;
 	}
 
 }

@@ -21,6 +21,7 @@
 					<th scope="col" class="col-md-2 table-warning">Email</th>
 					<th scope="col" class="col-md-2 table-warning">Website</th>
 					<th scope="col" class="col-md-2 table-warning">Head of department</th>
+					<th class="table-warning"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +33,8 @@
 					<td th:text="${department.email}" class="table-info"></td>
 					<td th:text="${department.website}" class="table-secondary"></td>
 					<td th:text="${department.headOfDepartment}" class="table-success"></td>
+					<td><a class="btn btn-primary" th:href="@{|/degree/${department.id}|}">Detail</a>
+						</tdclass="table-success">
 				</tr>
 			</tbody>
 		</table>
